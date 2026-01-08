@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allergan Aesthetics - Professional Display Solutions</title>
+    <style>
+        /* Clean, minimal design without heavy boxes */
+        .ap-portal {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: #fff;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .ap-portal * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container */
+        .ap-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        .ap-header {
+            padding: 1.5rem 0 2rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ap-brand {
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #925C54;
+            margin-bottom: 1rem;
+        }
+
+        .ap-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+
+        .ap-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* CTA Banner */
+        .ap-cta-banner {
+            background: linear-gradient(135deg, #925C54 0%, #6d4641 100%);
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(146, 92, 84, 0.2);
+        }
+
+        .ap-cta-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .ap-cta-text {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        .ap-cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #fff;
+            color: #925C54;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid #fff;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .ap-cta-btn:hover {
+            background: transparent;
+            color: #fff;
+            border-color: #fff;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main */
+        .ap-main {
+            padding: 3rem 0;
+        }
+
+        .ap-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        /* Cards */
+        .ap-card {
+            border: 1px solid #eee;
+            padding: 2rem;
+            background: #fff;
+            position: relative;
+        }
+
+        .ap-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #925C54;
+        }
+
+        .ap-card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+
+        .ap-card-text {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .ap-btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: #925C54;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid #925C54;
+            transition: all 0.2s ease;
+        }
+
+        .ap-btn:hover {
+            background: #492728;
+            border-color: #492728;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .ap-btn-outline {
+            background: #fff;
+            color: #925C54;
+            border: 1px solid #925C54;
+        }
+
+        .ap-btn-outline:hover {
+            background: #925C54;
+            color: #fff;
+        }
+
+        /* Info */
+        .ap-info {
+            padding: 2rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ap-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .ap-info-item {
+            padding: 1.5rem 0;
+            border-left: 2px solid #925C54;
+            padding-left: 1.5rem;
+        }
+
+        .ap-info-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #925C54;
+            margin-bottom: 0.75rem;
+        }
+
+        .ap-info-text {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .ap-highlight {
+            font-weight: 600;
+            color: #925C54;
+        }
+
+        /* Contact */
+        .ap-contact {
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .ap-contact-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+
+        .ap-contact-text {
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .ap-contact-card {
+            border: 2px solid #925C54;
+            padding: 2rem;
+            max-width: 400px;
+            margin: 0 auto;
+            background: #fff;
+        }
+
+        .ap-contact-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .ap-contact-role {
+            font-size: 0.9rem;
+            color: #925C54;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .ap-contact-email {
+            color: #925C54;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            border-bottom: 1px solid #925C54;
+            padding-bottom: 2px;
+        }
+
+        .ap-contact-email:hover {
+            color: #492728;
+            border-color: #492728;
+        }
+
+        /* Video Section */
+        .ap-video {
+            padding: 3rem 0;
+            background: #f8f8f8;
+            text-align: center;
+        }
+
+        .ap-video-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+
+        .ap-video-text {
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .ap-video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .ap-video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        .ap-footer {
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+
+        .ap-footer strong {
+            color: #000;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ap-header {
+                padding: 2rem 0 1.5rem;
+            }
+
+            .ap-title {
+                font-size: 2rem;
+            }
+
+            .ap-cta-banner {
+                padding: 1.5rem;
+                margin: 1.5rem 0;
+            }
+
+            .ap-cta-title {
+                font-size: 1.2rem;
+            }
+
+            .ap-cta-text {
+                font-size: 0.9rem;
+            }
+
+            .ap-cta-btn {
+                padding: 0.875rem 2rem;
+                font-size: 0.9rem;
+            }
+
+            .ap-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .ap-info-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .ap-main {
+                padding: 2rem 0;
+            }
+
+            .ap-contact {
+                padding: 2rem 0;
+            }
+
+            .ap-contact-card {
+                padding: 1.5rem;
+            }
+
+            .ap-video {
+                padding: 2rem 0;
+            }
+
+            .ap-video-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* BigCommerce reset */
+        .ap-portal a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .ap-portal .btn,
+        .ap-portal .button {
+            all: unset;
+        }
+    </style>
+</head>
+<body>
+    <div class="ap-portal">
+        <!-- Header -->
+        <header class="ap-header">
+            <div class="ap-container">
+                <div class="ap-brand">Premier Displays</div>
+                <h1 class="ap-title">Professional Display Solutions</h1>
+                <p class="ap-subtitle">
+                    Welcome to your dedicated portal for premium trade show displays and marketing materials. 
+                    Access solutions designed to empower confidence and support your practice success.
+                    <br><br>
+                    <em>New to the platform? See the tutorial video below for step-by-step guidance.</em>
+                </p>
+
+                <!-- CTA Banner -->
+                <div class="ap-cta-banner">
+                    <h2 class="ap-cta-title">Need Detailed Order Instructions?</h2>
+                    <p class="ap-cta-text">Access our comprehensive step-by-step guide for the complete ordering process</p>
+                    <a href="https://jourdanrombough.github.io/bigcom-instructions/" class="ap-cta-btn" target="_blank">View Instructional Guide</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main -->
+        <main class="ap-main">
+            <div class="ap-container">
+                <div class="ap-grid">
+                    <div class="ap-card">
+                        <h2 class="ap-card-title">New to the portal?</h2>
+                        <p class="ap-card-text">
+                            Create your professional account to access our complete catalog of display solutions 
+                            and streamlined ordering process. Get started with our comprehensive suite of materials.
+                        </p>
+                        <a href="https://allergan-aesthetics.mybigcommerce.com/login.php?action=create_account" class="ap-btn">Create Account</a>
+                    </div>
+
+                    <div class="ap-card">
+                        <h2 class="ap-card-title">Returning professional</h2>
+                        <p class="ap-card-text">
+                            Access your account to view order history, track shipments, and place new requests. 
+                            Your practice is our purpose. Continue managing your displays.
+                        </p>
+                        <a href="https://allergan-aesthetics.mybigcommerce.com/login.php" class="ap-btn ap-btn-outline">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Info -->
+        <section class="ap-info">
+            <div class="ap-container">
+                <div class="ap-info-grid">
+                    <div class="ap-info-item">
+                        <h3 class="ap-info-title">Processing Timeline</h3>
+                        <p class="ap-info-text">
+                            Standard requests receive confirmation within <span class="ap-highlight">2 business days</span>. 
+                            Our dedicated team will contact you to verify specifications and provide accurate delivery estimates.
+                        </p>
+                    </div>
+
+                    <div class="ap-info-item">
+                        <h3 class="ap-info-title">Expedited Service</h3>
+                        <p class="ap-info-text">
+                            Events within <span class="ap-highlight">7 business days</span>? Contact our priority 
+                            support team for immediate assistance and rush order processing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="ap-contact">
+            <div class="ap-container">
+                <h2 class="ap-contact-title">Dedicated Account Management</h2>
+                <p class="ap-contact-text">
+                    Your dedicated events manager is here to support your display needs and ensure 
+                    seamless project execution from concept to delivery.
+                </p>
+                
+                <div class="ap-contact-card">
+                    <h3 class="ap-contact-name">Stephanie Barnett</h3>
+                    <p class="ap-contact-role">Account Executive</p>
+                    <a href="mailto:scuellar@premierdisplays.com" class="ap-contact-email">
+                        scuellar@premierdisplays.com
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="ap-video">
+            <div class="ap-container">
+                <h2 class="ap-video-title">Platform Tutorial</h2>
+                <p class="ap-video-text">
+                    New to the portal? Watch this step-by-step guide to learn how to navigate 
+                    your account, place orders, and manage your display requests efficiently.
+                </p>
+                
+                <div class="ap-video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/vSHUMj-tjKE" 
+                        title="Platform Tutorial - How to Use the Portal"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="ap-footer">
+            <div class="ap-container">
+                <p><strong>Professional Display Portal</strong> • Secure • Efficient • Dedicated</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
