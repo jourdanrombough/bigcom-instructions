@@ -3,201 +3,1042 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BigCommerce Checkout Instructions</title>
+    <title>Allergan Aesthetics Checkout Instructions</title>
     <style>
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-dark: #1e3a8a;
+            --primary-blue: #3b82f6;
+            --white: #ffffff;
+            --light-bg: #f5f7fa;
+            --accent-blue: #60a5fa;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --border-color: #e5e7eb;
+            --success-green: #10b981;
+            --warning-amber: #f59e0b;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--light-bg);
         }
 
-        .container {
-            max-width: 900px;
-            width: 100%;
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 3rem 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 3rem;
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             opacity: 0.95;
             font-weight: 300;
         }
 
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Table of Contents */
+        .toc-wrapper {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
             margin-bottom: 3rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary-blue);
         }
 
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+        .toc-title {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .toc-title::before {
+            content: "📋";
+            margin-right: 0.5rem;
+        }
+
+        .toc-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .toc-section-title {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-bg);
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc-list a {
+            color: var(--primary-blue);
             text-decoration: none;
-            color: inherit;
-            display: block;
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        .toc-list a:hover {
+            background: var(--light-bg);
+            padding-left: 1rem;
+            color: var(--primary-dark);
         }
 
-        .card-header {
+        .toc-list a::before {
+            content: "→";
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        /* Section Styles */
+        .section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-description {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        /* Step Styles */
+        .step {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .step-header {
             display: flex;
             align-items: center;
             margin-bottom: 1.5rem;
         }
 
-        .card-icon {
-            font-size: 3rem;
-            margin-right: 1rem;
-        }
-
-        .card-title {
-            font-size: 1.8rem;
+        .step-number {
+            background: var(--primary-blue);
+            color: var(--white);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: #1f2937;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
         }
 
-        .card-description {
-            color: #6b7280;
-            line-height: 1.6;
+        .step-title {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .step-content {
+            margin-left: 64px;
+        }
+
+        .step-description {
+            color: var(--text-gray);
             margin-bottom: 1.5rem;
             font-size: 1.05rem;
+            line-height: 1.7;
         }
 
-        .card-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.75rem 1.5rem;
+        /* Screenshot Container */
+        .screenshot-container {
+            background: var(--light-bg);
             border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 2px solid var(--border-color);
+        }
+
+        .screenshot-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
             font-weight: 600;
-            display: inline-block;
-            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .card:hover .card-button {
-            transform: translateX(5px);
-        }
-
-        .allergen-card {
-            border-top: 4px solid #3b82f6;
-        }
-
-        .allergen-card .card-button {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-        }
-
-        .doordash-card {
-            border-top: 4px solid #FF3008;
-        }
-
-        .doordash-card .card-button {
-            background: linear-gradient(135deg, #8B2500 0%, #FF3008 100%);
-        }
-
-        .footer {
+        .screenshot-placeholder {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 2px dashed var(--primary-blue);
+            border-radius: 8px;
+            padding: 4rem 2rem;
             text-align: center;
-            color: white;
-            opacity: 0.9;
+            color: var(--primary-blue);
+            font-weight: 500;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .screenshot-placeholder::before {
+            content: "🖼️";
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .screenshot-img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: block;
+        }
+
+        /* Callout Boxes */
+        .callout {
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .callout-critical {
+            background: #fef3c7;
+            border-color: var(--warning-amber);
+            color: #92400e;
+        }
+
+        .callout-info {
+            background: #dbeafe;
+            border-color: var(--primary-blue);
+            color: #1e40af;
+        }
+
+        .callout-success {
+            background: #d1fae5;
+            border-color: var(--success-green);
+            color: #065f46;
+        }
+
+        .callout-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .callout-critical .callout-title::before {
+            content: "⚠️";
+            margin-right: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .callout-info .callout-title::before {
+            content: "ℹ️";
+            margin-right: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .callout-success .callout-title::before {
+            content: "✅";
+            margin-right: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .callout-content {
+            line-height: 1.6;
+        }
+
+        /* Custom Fields Highlight */
+        .custom-fields-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 3px solid var(--warning-amber);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+        }
+
+        .custom-fields-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-fields-title::before {
+            content: "⭐";
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .custom-field-item {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid var(--warning-amber);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-field-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .custom-field-name {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .custom-field-description {
             font-size: 0.95rem;
+            color: var(--text-gray);
         }
 
-        .footer a {
-            color: white;
+        /* Instructions List */
+        .instructions-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .instructions-list li {
+            padding: 0.75rem 0 0.75rem 2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .instructions-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0.5rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
-            font-weight: 600;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
             transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
         }
 
-        .footer a:hover {
-            border-bottom-color: white;
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
 
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        .back-to-top::before {
+            content: "↑";
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            header {
+                background: var(--primary-dark);
+                color: white;
+            }
+
+            .back-to-top {
+                display: none;
+            }
+
+            .section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid var(--border-color);
+            }
+
+            .step {
+                page-break-inside: avoid;
+            }
+
+            .screenshot-container {
+                page-break-inside: avoid;
+            }
+
+            .toc-list a {
+                color: var(--primary-dark);
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
             }
 
-            .card-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .container {
+                padding: 1rem;
             }
 
-            .card {
-                padding: 2rem;
+            .section {
+                padding: 1.5rem;
             }
 
-            .card-title {
+            .step-content {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .step-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .step-number {
+                margin-bottom: 0.5rem;
+            }
+
+            .toc-wrapper {
+                padding: 1.5rem;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
                 font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .step-title {
+                font-size: 1.2rem;
+            }
+
+            .screenshot-placeholder {
+                min-height: 250px;
+                padding: 2rem 1rem;
             }
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <h1>Allergan Aesthetics Checkout Instructions</h1>
+            <p class="subtitle">Complete Step-by-Step Guide for Customer Checkout Process and Admin Order Management</p>
+        </div>
+    </header>
+
     <div class="container">
-        <div class="header">
-            <h1>📚 Checkout Instructions</h1>
-            <p class="subtitle">Select your platform to view step-by-step checkout instructions</p>
+        <!-- Table of Contents -->
+        <div class="toc-wrapper">
+            <h2 class="toc-title">Table of Contents</h2>
+            
+            <div class="toc-section">
+                <div class="toc-section-title">Part 1: Customer-Facing Checkout Flow</div>
+                <ul class="toc-list">
+                    <li><a href="#step1">Step 1: Access the Homepage</a></li>
+                    <li><a href="#step2">Step 2: Sign In to Your Account</a></li>
+                    <li><a href="#step3">Step 3: Browse Products</a></li>
+                    <li><a href="#step4">Step 4: Select a Product</a></li>
+                    <li><a href="#step5">Step 5: Add to Cart</a></li>
+                    <li><a href="#step6">Step 6: View Shopping Cart & Initiate Checkout</a></li>
+                    <li><a href="#step7">Step 7: Enter Shipping Information</a></li>
+                    <li><a href="#step8">Step 8: Complete Custom Fields (CRITICAL)</a></li>
+                    <li><a href="#step9">Step 9: Review Order</a></li>
+                    <li><a href="#step10">Step 10: Place Order & Confirmation</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <div class="toc-section-title">Part 2: Admin Backend Order Management</div>
+                <ul class="toc-list">
+                    <li><a href="#admin1">Admin Step 1: Access Admin & Navigate to Orders</a></li>
+                    <li><a href="#admin2">Admin Step 2: View Order Details & Custom Fields</a></li>
+                </ul>
+            </div>
         </div>
 
-        <div class="card-grid">
-            <a href="ALLERGEN/docs/" class="card allergen-card">
-                <div class="card-header">
-                    <div class="card-icon">💉</div>
-                    <div class="card-title">Allergan Aesthetics</div>
+        <!-- Part 1: Customer-Facing Checkout Flow -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Part 1: Customer-Facing Checkout Flow</h2>
+                <p class="section-description">Follow these steps to complete a purchase on the Allergan Aesthetics store</p>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="step" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Access the Homepage</h3>
                 </div>
-                <p class="card-description">
-                    Complete checkout guide for the Allergan Aesthetics BigCommerce store.
-                    Learn how to place orders with custom shipping methods, arrival dates, and SHOWKIT numbers.
-                </p>
-                <span class="card-button">View Instructions →</span>
-            </a>
+                <div class="step-content">
+                    <p class="step-description">Navigate to the Allergan Aesthetics BigCommerce store to begin your shopping experience.</p>
+                    
+                    <ul class="instructions-list">
+                        <li>Open your web browser</li>
+                        <li>Go to: <strong>https://allergan-aesthetics.mybigcommerce.com/</strong></li>
+                    </ul>
 
-            <a href="DOORDASH/docs/" class="card doordash-card">
-                <div class="card-header">
-                    <div class="card-icon">📦</div>
-                    <div class="card-title">DoorDash Display Portal</div>
+                    <div class="screenshot-container">
+                        <div class="screenshot-label">Homepage</div>
+                        <img src="images/1-access-homepage.png" alt="Allergan Aesthetics homepage showing navigation menu, featured products, and store branding" class="screenshot-img">
+                    </div>
+
+                    <div class="callout callout-info">
+                        <div class="callout-title">Important Note</div>
+                        <div class="callout-content">
+                            Ensure you have your account credentials ready. If you don't have an account, you may need to register before completing checkout.
+                        </div>
+                    </div>
                 </div>
-                <p class="card-description">
-                    Step-by-step instructions for ordering display materials through the DoorDash Display Portal
-                    managed by Premier Displays. Includes custom PO number and shipping requirements.
-                </p>
-                <span class="card-button">View Instructions →</span>
-            </a>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Sign In to Your Account</h3>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">Log in with your existing credentials to access your account and proceed with checkout.</p>
+                    
+                    <ul class="instructions-list">
+                        <li>Click on the "Sign In" or "Account" link (typically in the top right corner)</li>
+                        <li>Enter your registered email address</li>
+                        <li>Enter your password</li>
+                        <li>Click "Sign In" or "Log In" button</li>
+                    </ul>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-label">Sign In Page</div>
+                        <img src="images/2-sign-in-account.png" alt="Sign in form with email and password input fields and login button" class="screenshot-img">
+                    </div>
+
+                    <div class="callout callout-info">
+                        <div class="callout-title">Account Required</div>
+                        <div class="callout-content">
+                            You must be logged in to complete the checkout process. If you're a new user, contact your Allergan Aesthetics representative for account setup.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Browse Products</h3>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">Explore the product catalog to find the items you need.</p>
+                    
+                    <ul class="instructions-list">
+                        <li>Use the main navigation menu to browse product categories</li>
+                        <li>Use the search function to find specific products</li>
+                        <li>View product listings with images and names</li>
+                    </ul>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-label">Product Browsing</div>
+                        <img src="images/3-browse-products.png" alt="Product catalog page displaying multiple products in a grid layout with images, names, and prices" class="screenshot-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Select a Product</h3>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">Click on a product to view its detailed information page.</p>
+                    
+                    <ul class="instructions-list">
+                        <li>Click on the product image or name</li>
+                        <li>Review product details, description, and specifications</li>
+                        <li>Check product availability</li>
+                        <li>Select quantity if applicable</li>
+                    </ul>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-label">Product Detail Page</div>
+                        <img src="images/4-select-product.png" alt="Product detail page showing large product image, description, price, quantity selector, and Add to Cart button" class="screenshot-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step" id="step5">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">Add to Cart</h3>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">Add your selected product to the shopping cart.</p>
+                    
+                    <ul class="instructions-list">
+                        <li>Click the "Add to Cart" button</li>
+                        <li>Wait for confirmation that the item was added</li>
+                    </ul>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-label">Add to Cart Action</div>
+                        <img src="images/5-add-cart.png" alt="Add to Cart button and success confirmation showing item added to shopping cart" class="screenshot-img">
+                    </div>
+
+                    <div class="callout callout-success">
+                        <div class="callout-title">Success</div>
+                        <div class="callout-content">
+                            You should see a confirmation message that your product has been added to the cart. The cart icon may update to show the number of items.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6: Merged View Cart + Initiate Checkout -->
+            <div class="step" id="step6">
+                <div class="step-header">
+                    <div class="step-number">6</div>
+                    <h3 class="step-title">View Shopping Cart & Initiate Checkout</h3>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">Review all items in your shopping cart and begin the checkout process.</p>
+                    
+                    <ul class="instructions-list">
+                        <li>You may see a mini cart popup or notification</li>
+                        <li>Click the "Proceed to Checkout" or "Checkout" button to continue</li>
+                        <li>Continue shopping if more products need to be ordered</li>
+                    </ul>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-label">Shopping Cart & Checkout</div>
+                        <img src="images/7-initiate-checkout.png" alt="Shopping cart page with product items, quantities, totals, and Checkout button" class="screenshot-img">
+                    </div>
+
+                    <div class="callout callout-info">
+                        <div class="callout-title">Cart Review</div>
+                        <div class="callout-content">
+                            This is your last chance to modify your order before checkout. Double-check all items and quantities.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="step" id="step7">
+                <div class="step-header">
+                    <div class="step-number">7</div>
+                    <h3 class="step-title">Enter Shipping Information</h3>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">Provide the delivery address and shipping details for your order.</p>
+                    
+                    <ul class="instructions-list">
+                        <li>Enter or verify your shipping address</li>
+                        <li>Fill in required fields: First Name, Last Name</li>
+                        <li>Enter Company Name (if applicable)</li>
+                        <li>Enter Street Address</li>
+                        <li>Enter City, State/Province, and ZIP/Postal Code</li>
+                        <li>Select Country</li>
+                        <li>Enter Phone Number</li>
+                    </ul>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-label">Shipping Information Form</div>
+                        <img src="images/8-shipping-info.png" alt="Shipping information form with name, address, city, state, postal code, and phone number fields" class="screenshot-img">
+                    </div>
+
+                    <div class="callout callout-info">
+                        <div class="callout-title">Address Accuracy</div>
+                        <div class="callout-content">
+                            Ensure all shipping information is accurate to avoid delivery delays or issues. This address will be used for product shipment.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 8 - CRITICAL CUSTOM FIELDS -->
+            <div class="step" id="step8">
+                <div class="step-header">
+                    <div class="step-number">8</div>
+                    <h3 class="step-title">Complete Custom Fields (CRITICAL)</h3>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">This is the most important step - complete the three mandatory custom fields that are unique to Allergan Aesthetics checkout.</p>
+                    
+                    <div class="custom-fields-box">
+                        <div class="custom-fields-title">Required Custom Fields</div>
+                        <p style="margin-bottom: 1.5rem; color: #92400e;">These three fields MUST be completed during checkout. They appear in the shipping information section.</p>
+                        
+                        <div class="custom-field-item">
+                            <div class="custom-field-name">1. PREFERRED SHIPPING METHOD</div>
+                            <div class="custom-field-description">Specify how you want your order shipped (e.g., Ground, Express, Overnight, Standard)</div>
+                        </div>
+                        
+                        <div class="custom-field-item">
+                            <div class="custom-field-name">2. ARRIVAL DATE</div>
+                            <div class="custom-field-description">Enter the date when you need the products to arrive at your location</div>
+                        </div>
+                        
+                        <div class="custom-field-item">
+                            <div class="custom-field-name">3. SHOWKIT NUMBER</div>
+                            <div class="custom-field-description">Enter your SHOWKIT Number for internal tracking and billing purposes</div>
+                        </div>
+                    </div>
+
+
+                    <div class="callout callout-critical">
+                        <div class="callout-title">Critical Information</div>
+                        <div class="callout-content">
+                            <strong>These fields are mandatory and unique to this store.</strong> Make sure to:
+                            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                                <li>Fill in all three custom fields before proceeding</li>
+                                <li>Use accurate information as this affects order processing</li>
+                                <li>The SHOWKIT NUMBER is essential for billing reconciliation</li>
+                                <li>The ARRIVAL DATE helps with scheduling and logistics</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="callout callout-info">
+                        <div class="callout-title">Shipping Costs Note</div>
+                        <div class="callout-content">
+                            You may see a message stating <strong>"SHIPPING COSTS SENT SEPARATELY"</strong>. This means shipping charges will be calculated and invoiced separately from your product order. Do not expect to see shipping costs in your current order total.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 9: Merged Billing, Payment, Review -->
+            <div class="step" id="step9">
+                <div class="step-header">
+                    <div class="step-number">9</div>
+                    <h3 class="step-title">Review Order</h3>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">Review your complete order before placing it.</p>
+                    
+                    <ul class="instructions-list">
+                        <li>Review all items in your order</li>
+                        <li>Verify quantities and shipping address</li>
+                        <li>Confirm the three custom fields are filled: PREFERRED SHIPPING METHOD, ARRIVAL DATE, SHOWKIT NUMBER</li>
+                        <li>Read and accept terms and conditions if required</li>
+                    </ul>
+
+                    <div class="callout callout-critical">
+                        <div class="callout-title">Final Check</div>
+                        <div class="callout-content">
+                            This is your last opportunity to review everything. Make sure:
+                            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                                <li>All products and quantities are correct</li>
+                                <li>Shipping address is accurate</li>
+                                <li>Custom fields (PREFERRED SHIPPING METHOD, ARRIVAL DATE, SHOWKIT NUMBER) are completed</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 10: Order Confirmation -->
+            <div class="step" id="step10">
+                <div class="step-header">
+                    <div class="step-number">10</div>
+                    <h3 class="step-title">Place Order & Confirmation</h3>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">Complete the order and receive confirmation.</p>
+                    
+                    <ul class="instructions-list">
+                        <li>Attach SHOWKIT PDF if applicable (recommended for documentation)</li>
+                        <li>Click "Place Order" or "Complete Order" button</li>
+                        <li>Wait for order processing (do not refresh the page)</li>
+                        <li>You will be redirected to a confirmation page</li>
+                        <li>Note your order number</li>
+                        <li>You should receive a confirmation email</li>
+                    </ul>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-label">Order Confirmation</div>
+                        <img src="images/13-order-confirmation.png" alt="Order confirmation page displaying order number, success message, and order details" class="screenshot-img">
+                    </div>
+
+                    <div class="callout callout-success">
+                        <div class="callout-title">Order Placed Successfully</div>
+                        <div class="callout-content">
+                            Congratulations! Your order has been placed. Save your order number for reference. You will receive a confirmation email with order details. Remember that shipping costs will be sent separately as indicated during checkout.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="footer">
-            <p>Made with ❤️ by <a href="https://optimizationtheory.com" target="_blank">Optimization Theory</a></p>
-            <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">© 2026 - For authorized users only</p>
+        <!-- Part 2: Admin Backend -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Part 2: Admin Backend Order Management</h2>
+                <p class="section-description">Access and manage orders through the BigCommerce admin panel</p>
+            </div>
+
+            <!-- Admin Step 1 -->
+            <div class="step" id="admin1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Access Admin & Navigate to Orders</h3>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">Log in to the BigCommerce admin panel and navigate to the orders section.</p>
+                    
+                    <ul class="instructions-list">
+                        <li>Go to: <strong>https://store-s9ui47mdcv.mybigcommerce.com/manage</strong></li>
+                        <li>Enter your admin credentials and log in</li>
+                        <li>After logging in, look for the left sidebar navigation menu</li>
+                        <li>Click on "Orders" in the main navigation</li>
+                        <li>You'll see a list of all orders in the system</li>
+                        <li>Use filters/search to find specific orders</li>
+                        <li>Click on an order to view its details</li>
+                    </ul>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-label">Admin Dashboard - Orders Navigation</div>
+                        <img src="images/2b-navagate-orders.png" alt="BigCommerce admin dashboard with Orders section highlighted in left navigation menu" class="screenshot-img">
+                    </div>
+
+                    <div class="callout callout-info">
+                        <div class="callout-title">Admin Access Required</div>
+                        <div class="callout-content">
+                            You must have administrator credentials to access the backend. Contact your store owner or IT administrator if you don't have access.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Step 2 -->
+            <div class="step" id="admin2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">View Order Details & Custom Fields</h3>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">Access detailed order information including the three critical custom fields.</p>
+                    
+                    <ul class="instructions-list">
+                        <li>Click on an order number or "View" button to open order details</li>
+                        <li>The order detail page displays comprehensive order information including custom fields</li>
+                        <li>Look for the attached SHOWKIT PDF file if customer uploaded one</li>
+                        <li>Click to download and view the SHOWKIT PDF for reference</li>
+                        <li>Update order status as needed (e.g., Processing, Shipped, Completed)</li>
+                        <li>Use the status dropdown to change order status throughout fulfillment</li>
+                    </ul>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-label">Order Detail View with Custom Fields</div>
+                        <img src="images/4b-view-order-details.png" alt="Admin order details page showing customer information, products, addresses, and the three custom fields: PREFERRED SHIPPING METHOD, ARRIVAL DATE, and PO NUMBER" class="screenshot-img">
+                    </div>
+
+                    <div class="custom-fields-box">
+                        <div class="custom-fields-title">Custom Fields Location in Admin</div>
+                        <p style="margin-bottom: 1.5rem; color: #92400e;">The three custom fields from checkout are displayed in the order details page. Look for these fields:</p>
+                        
+                        <div class="custom-field-item">
+                            <div class="custom-field-name">PREFERRED SHIPPING METHOD</div>
+                            <div class="custom-field-description">Shows the customer's preferred shipping option</div>
+                        </div>
+                        
+                        <div class="custom-field-item">
+                            <div class="custom-field-name">ARRIVAL DATE</div>
+                            <div class="custom-field-description">Shows when the customer needs the products to arrive</div>
+                        </div>
+                        
+                        <div class="custom-field-item">
+                            <div class="custom-field-name">SHOWKIT NUMBER</div>
+                            <div class="custom-field-description">Shows the customer's SHOWKIT Number for billing</div>
+                        </div>
+                    </div>
+
+                    <div class="callout callout-critical">
+                        <div class="callout-title">Critical for Order Processing</div>
+                        <div class="callout-content">
+                            These custom fields are essential for fulfillment:
+                            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                                <li><strong>PREFERRED SHIPPING METHOD</strong> - Use this to select the correct shipping carrier and service</li>
+                                <li><strong>ARRIVAL DATE</strong> - Ensure shipment is scheduled to meet this deadline</li>
+                                <li><strong>SHOWKIT NUMBER</strong> - Include this on all invoices and shipping documents</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="callout callout-info">
+                        <div class="callout-title">Order Processing Workflow</div>
+                        <div class="callout-content">
+                            When processing orders:
+                            <ol style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                                <li>Review all custom fields immediately</li>
+                                <li>Use the PREFERRED SHIPPING METHOD to book shipment</li>
+                                <li>Schedule shipment to meet the ARRIVAL DATE</li>
+                                <li>Reference the SHOWKIT NUMBER on all documentation</li>
+                                <li>Calculate and invoice shipping costs separately as noted</li>
+                                <li>Update order status as you process</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
+
+    <footer>
+        <p>&copy; 2026 Allergan Aesthetics. This instructional guide is for authorized users only.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Document Version 1.0 - Last Updated: January 2026</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Made by <a href="https://optimizationtheory.com" target="_blank" style="color: #3b82f6; text-decoration: none;">Optimization Theory</a></p>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop"></a>
+
+    <script>
+        // Back to Top Button Functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Print Functionality
+        function printInstructions() {
+            window.print();
+        }
+    </script>
 </body>
 </html>
